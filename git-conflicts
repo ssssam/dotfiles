@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Open all git files with conflicts in gvim
+
+set -eu
+
+WORKTREE=$(git rev-parse --show-toplevel)
+FILES=$(git status --porcelain | sed -n -e "/^[UM][UM] / s@^.. @$WORKTREE/@ p")
+
+echo $FILES
