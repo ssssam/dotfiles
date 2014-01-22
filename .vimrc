@@ -46,7 +46,7 @@ set complete-=i
 " different listchars
 
 " Not in sensible.vim and disabled to see if I miss it
-"set wildmode=list:longest
+set wildmode=list:longest
 
 " Unclassified / my views differ from Tim Pope's
 
@@ -76,4 +76,4 @@ set tabstop=4
 " For Vala
 " FIXME: is there a way to do this using Pathogen.vim automatically?
 autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
+autocmd BufRead,BufNewFile *.vala,*.vapi setfiletype vala
