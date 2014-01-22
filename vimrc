@@ -65,8 +65,8 @@ if has("gui_running")
     set number
 endif
 
-" For Python
-set expandtab
+" Defaults (Vim's number one use is code!).
+" Filetype-specific overrides go in .vim/ftplugin/$FILETYPE.vim
 set list
 set listchars=trail:.,tab:>- 
 set nowrap
