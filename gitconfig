@@ -1,0 +1,19 @@
+[user]
+	name = Sam Thursfield
+	email = sam.thursfield@codethink.co.uk
+[core]
+	editor = vim
+	excludesfile = /home/sam/.gitignore
+[color]
+	ui = auto
+[push]
+	default = current
+[sendemail]
+	smtpserver = mail.codethink.co.uk
+	smtpserverport = 465
+	smtpencryption = ssl
+	smtpuser = samthursfield
+	from = Sam Thursfield <sam.thursfield@codethink.co.uk>
+	stmpencryption = ssl
+[smtp]
+	encryption = ssl
