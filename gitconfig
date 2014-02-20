@@ -1,0 +1,10 @@
+[user]
+	name = Sam Thursfield
+	email = sam@afuera.me.uk
+[core]
+	editor = vim
+	excludesfile = /home/sam/.gitignore
+[color]
+	ui = auto
+[push]
+	default = current
