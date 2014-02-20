@@ -1,2 +1,2 @@
 " Python-specific Vim configuration
-setlocal expandtab
+setlocal textwidth=79

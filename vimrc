@@ -67,6 +67,7 @@ endif
 
 " Defaults (Vim's number one use is code!).
 " Filetype-specific overrides go in .vim/ftplugin/$FILETYPE.vim
+set expandtab
 set list
 set listchars=trail:.,tab:>- 
 set nowrap
