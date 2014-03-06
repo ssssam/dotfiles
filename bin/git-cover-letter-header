@@ -1,18 +1,42 @@
-#!/bin/sh
+#!/usr/bin/env python
 
-set -eu
+import re
+import subprocess
+import sys
 
-REPOSITORY=$(git remote -v | head -n 1 | \
-         egrep --only-matching "(git://|git@|ssh://)[^ ]*")
-BRANCH=$(git status --branch --porcelain | head -n 1 | cut -c 4- | \
-         sed -e 's/\(.*\)\.\.\..*/\1/')
-SHA1=$(git rev-parse $BRANCH)
+def get_repository():
+    remotes = subprocess.check_output(['git', 'remote', '-v'])
+    fetch_pattern = re.compile('git://[^ ]+')
+    return next(fetch_pattern.finditer(remotes)).group(0)
 
-echo
-echo "Repository: $REPOSITORY"
-echo "Ref: $BRANCH" 
-echo "Sha1: $SHA1"
+def get_branch():
+    status = subprocess.check_output(
+        ['git', 'status', '--branch', '--porcelain'])
+    branch_line = status.split('\n')[0]
+    branch_line = branch_line[3:]
+    if '...' in branch_line:
+        branch_line = branch_line[0:branch_line.find('...')]
+    return branch_line
 
-if ! git rev-parse origin/$BRANCH >/dev/null 2&>1; then
-    echo >&2 "Don't forget to push -- branch origin/$BRANCH does not exist!"
-fi
+def get_sha1(ref):
+    return subprocess.check_output(['git', 'rev-parse', ref]).strip()
+
+def check_uncommitted_changes():
+    status = subprocess.call(
+        ['git', 'rev-parse', 'origin/%s' % branch],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return status != 0
+
+repository = get_repository()
+branch = get_branch()
+sha1 = get_sha1(branch)
+
+print
+print "Repository: ", repository
+print "Ref: ", branch
+print "Sha1: ", sha1
+
+if check_uncommitted_changes():
+    sys.stderr.write(
+       "Don't forget to push -- branch origin/%s does not "
+       "exist!\n" % branch)
