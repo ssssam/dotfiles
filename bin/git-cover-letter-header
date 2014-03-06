@@ -1,0 +1,12 @@
+#!/bin/sh
+
+REPOSITORY=$(git remote -v | head -n 1 | \
+	egrep --only-matching "(git://|git@|ssh://)[^ ]*")
+BRANCH=$(git status --branch --porcelain | sed -e 's/## \(.*\)\.\.\..*/\1/')
+SHA1=$(git rev-parse origin/$BRANCH)
+
+echo
+echo "Repository: $REPOSITORY"
+echo "Ref: $BRANCH" 
+echo "Sha1: $SHA1"
+
