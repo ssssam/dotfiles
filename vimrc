@@ -1,5 +1,10 @@
-" Things I chose that are in sensible.vim
+" Pathogen load
+filetype off
 
+call pathogen#infect()
+call pathogen#helptags()
+
+" Things I chose that are in sensible.vim
 filetype plugin indent on
 
 set autoindent
