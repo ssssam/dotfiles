@@ -4,6 +4,9 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+" Workaround for https://github.com/klen/python-mode/issues/405
+let g:pymode_rope = 0
+
 " Things I chose that are in sensible.vim
 filetype plugin indent on
 
