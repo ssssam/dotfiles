@@ -46,8 +46,7 @@ def install_links_to_source_tree(bld, targets):
 
 def build(bld):
     # Task functionality of waf is not used right now because this is
-    # such as simple use case.
-
+    # such a simple use case.
 
     bld.exec_command('cp gitconfig.in gitconfig')
     bld.exec_command('git config -f gitconfig user.email %s' %
