@@ -1,0 +1,9 @@
+[sendemail]
+        smtpserver = mail.codethink.co.uk
+        smtpserverport = 465
+        smtpencryption = ssl
+        smtpuser = samthursfield
+        from = Sam Thursfield <sam.thursfield@codethink.co.uk>
+        stmpencryption = ssl
+[smtp]
+        encryption = ssl

@@ -13,8 +13,10 @@ def configure(conf):
         conf.fatal("No identity set -- you must pass --identity")
     elif conf.options.identity == 'me':
         conf.env.GIT_EMAIL = 'sam@afuera.me.uk'
+        conf.env.GIT_EXTRA_CONFIG = ''
     elif conf.options.identity == 'codethink':
         conf.env.GIT_EMAIL = 'sam.thursfield@codethink.co.uk'
+        conf.env.GIT_EXTRA_CONFIG = 'gitconfig.codethink-stmp'
 
 # This can be a file or a directory, directories are recursed into
 # and everything within is installed.
@@ -49,7 +51,12 @@ def build(bld):
     # such a simple use case.
 
     bld.exec_command('cp gitconfig.in gitconfig')
+
+    if bld.env.GIT_EXTRA_CONFIG:
+        bld.exec_command('cat %s >> gitconfig' % bld.env.GIT_EXTRA_CONFIG)
+
     bld.exec_command('git config -f gitconfig user.email %s' %
                      bld.env.GIT_EMAIL)
+
 
     install_links_to_source_tree(bld, install_targets)
