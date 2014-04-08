@@ -7,7 +7,11 @@ import sys
 def get_repository():
     remotes = subprocess.check_output(['git', 'remote', '-v'])
     fetch_pattern = re.compile('git://[^ ]+')
-    return next(fetch_pattern.finditer(remotes)).group(0)
+    push_pattern = re.compile('ssh://[^ ]+')
+    try:
+        return next(fetch_pattern.finditer(remotes)).group(0)
+    except StopIteration:
+        return next(push_pattern.finditer(remotes)).group(0)
 
 def get_branch():
     status = subprocess.check_output(
