@@ -6,6 +6,7 @@ call pathogen#helptags()
 
 let g:pymode_folding = 0
 let g:pymode_lint_on_write = 0
+let g:pymode_trim_whitespaces = 0
 
 " Workaround for https://github.com/klen/python-mode/issues/405
 let g:pymode_rope = 0
