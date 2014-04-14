@@ -11,61 +11,12 @@ let g:pymode_trim_whitespaces = 0
 " Workaround for https://github.com/klen/python-mode/issues/405
 let g:pymode_rope = 0
 
-" Things I chose that are in sensible.vim
-filetype plugin indent on
-
-set autoindent
-
-set incsearch
-
-set tabpagemax=50
-
-" New things from sensible.vim that I'm OK with
-set showmatch
-set smarttab
-
-set nrformats-=octal
-set shiftround
-
-set autoread
-set fileformats+=mac
-
-set history=1000
-set viminfo^=!
-
-
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-
-set laststatus=2
-set showcmd
-set wildmenu
-
-set sidescrolloff=5
-set display+=lastline
-
-" What the fuck does this do?
-inoremap <C-U> <C-G>u<C-U>
-
-" Things from sensible.vim that seem to be set anyway
-set backspace=indent,eol,start
-set ruler
-set encoding=utf-8
-
-" Things from sensible.vim that I don't like the sound of but I'm trying
-set complete-=i
-" set ttimeout
-" set ttimeoutlen=50
-" different listchars
-
-" Not in sensible.vim and disabled to see if I miss it
-set wildmode=list:longest
-
-" Unclassified / my views differ from Tim Pope's
-
+" UI stuff
 set hidden
 set nobackup
 set scrolloff=4
 set splitright
+set wildmode=list:longest
 
 " GUI stuff
 if has("gui_running")
@@ -77,8 +28,8 @@ if has("gui_running")
     set number
 endif
 
-" Defaults (Vim's number one use is code!).
-" Filetype-specific overrides go in .vim/ftplugin/$FILETYPE.vim
+" Editing defaults. Filetype-specific overrides go in
+" .vim/ftplugin/$FILETYPE.vim
 set expandtab
 set list
 set listchars=trail:.,tab:>- 
