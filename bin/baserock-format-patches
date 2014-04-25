@@ -81,6 +81,10 @@ def prepare_cover_letter(remote_url, branch):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
+        '--to', default='origin/master',
+        help="Parent branch of the feature branch being sent for review "
+             "(default 'master')")
+    parser.add_argument(
         '--remote-name', '-r', default='origin',
         help="Name of remote that this branch would be pushed to (either Git "
              "remote name or full repository URL, default 'origin')")
@@ -94,8 +98,8 @@ def main():
     branch = get_branch()
     remote_url = get_remote_fetch_url(args.remote_name)
 
-    subprocess.check_call(
-        'git format-patch -o outgoing -M master --cover-letter'.split(' '))
+    command = 'git format-patch -o outgoing --cover-letter --find-renames %s' % args.to
+    subprocess.check_call(command.split(' '))
 
     prepare_cover_letter(remote_url, branch)
 
