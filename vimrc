@@ -4,6 +4,8 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+filetype plugin indent on
+
 let g:pymode_folding = 0
 let g:pymode_lint_on_write = 0
 let g:pymode_trim_whitespaces = 0
