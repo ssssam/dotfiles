@@ -28,6 +28,9 @@ if has("gui_running")
     set guioptions-=T
 
     set number
+else
+    " QBASIC AND FUCK THE WORLD
+    colorscheme blue
 endif
 
 " Editing defaults. Filetype-specific overrides go in
