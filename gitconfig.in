@@ -2,7 +2,7 @@
 	name = Sam Thursfield
 [core]
 	editor = vim
-	excludesfile = /home/sam/.gitignore
+	excludesfile = ~/.gitignore
 [color]
 	ui = auto
 [push]
