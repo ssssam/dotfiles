@@ -22,6 +22,7 @@ def configure(conf):
 # and everything within is installed.
 install_targets = [
     ('bin', '${PREFIX}/bin'),
+    ('bash_profile', '~/.bash_profile'),
     ('bashrc', '~/.bashrc'),
     ('gitconfig', '~/.gitconfig'),
     ('gitignore', '~/.gitignore'),
