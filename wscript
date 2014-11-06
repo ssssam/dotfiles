@@ -22,8 +22,10 @@ def configure(conf):
 # and everything within is installed.
 install_targets = [
     ('bin', '${PREFIX}/bin'),
+    ('bashrc', '~/.bashrc'),
     ('gitconfig', '~/.gitconfig'),
     ('gitignore', '~/.gitignore'),
+    ('profile', '~/.profile'),
     ('vim', '~/.vim'),
     ('vimrc', '~/.vimrc'),
 ]
