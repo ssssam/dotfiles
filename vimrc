@@ -31,6 +31,8 @@ if has("gui_running")
 else
     " QBASIC AND FUCK THE WORLD
     colorscheme blue
+    " FUCK OFF MOUSE TERMINAL INTEGRATION YOU'RE SO ANNOYING
+    set mouse-=a
 endif
 
 " Editing defaults. Filetype-specific overrides go in
