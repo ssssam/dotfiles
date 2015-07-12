@@ -48,3 +48,6 @@ set tabstop=4
 " FIXME: is there a way to do this using Pathogen.vim automatically?
 autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead,BufNewFile *.vala,*.vapi setfiletype vala
+
+" Map :W to :w.
+command W w
