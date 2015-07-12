@@ -2,6 +2,7 @@ export EDITOR=vim
 
 alias ga="git add"
 alias gb="git branch"
+alias gcp="git cherry-pick"
 alias gd.="git diff"
 alias gd.c="git diff --cached"
 alias gco="git checkout"
