@@ -417,7 +417,7 @@ def get_config(tracker):
             add_config_from_string(CONFIG[host], cached_config)
         add_config_from_git(host, cached_config)
         if tracker != host:
-            cached_config.update(get_git_config(tracker))
+            add_config_from_git(tracker, cached_config)
 
     assert cached_config_tracker == tracker
 
@@ -591,7 +591,7 @@ class BugHandle:
 class CookieError(Exception):
     pass
 
-def do_get_cookies_from_sqlite(host, cookies_sqlite, browser, query, chromium_time):
+def do_get_cookies_from_sqlite(host, cookies_sqlite, browser, query):
     result = {}
     # We use a timeout of 0 since we expect to hit the browser holding
     # the lock often and we need to fall back to making a copy without a delay
@@ -602,7 +602,12 @@ def do_get_cookies_from_sqlite(host, cookies_sqlite, browser, query, chromium_ti
         cursor.execute(query, { 'host': host })
 
         now = time.time()
-        for name,value,path,expiry in cursor.fetchall():
+        cookies = list(cursor.fetchall())
+        chromium_time = False
+        if browser in ('Google Chrome', 'Chromium'):
+            cookies = decrypt_cookie_values(cookies, browser)
+            chromium_time = True
+        for name,value,path,expiry in cookies:
             # Excessive caution: toss out values that need to be quoted in a cookie header
             expiry = float(expiry)
             if chromium_time:
@@ -614,7 +619,6 @@ def do_get_cookies_from_sqlite(host, cookies_sqlite, browser, query, chromium_ti
                     expiry -= 11644473600
             if float(expiry) > now and not re.search(r'[()<>@,;:\\"/\[\]?={} \t]', value):
                 result[name] = value
-
         return result
     finally:
         connection.close()
@@ -632,15 +636,13 @@ def get_cookies_from_sqlite_with_copy(host, cookies_sqlite, browser, *args, **kw
     finally:
         os.remove(db_copy)
 
-def get_cookies_from_sqlite(host, cookies_sqlite, browser, query, chromium_time=False):
+def get_cookies_from_sqlite(host, cookies_sqlite, browser, query):
     try:
-        result = do_get_cookies_from_sqlite(host, cookies_sqlite, browser, query,
-                                            chromium_time=chromium_time)
+        result = do_get_cookies_from_sqlite(host, cookies_sqlite, browser, query)
     except sqlite.OperationalError, e:
         if "database is locked" in str(e):
             # Try making a temporary copy
-            result = get_cookies_from_sqlite_with_copy(host, cookies_sqlite, browser, query,
-                                                       chromium_time=chromium_time)
+            result = get_cookies_from_sqlite_with_copy(host, cookies_sqlite, browser, query)
         else:
             raise
 
@@ -705,6 +707,59 @@ def get_bugzilla_cookies_epy(host):
 
     return get_cookies_from_sqlite_xulrunner(host, cookies_sqlite, "Epiphany")
 
+def decrypt_cookie_values(cookies, browser):
+    # Code inspired by this blog post: http://n8henrie.com/2014/05/decrypt-chrome-cookies-with-python/
+
+    try:
+        from Crypto.Cipher import AES
+        from Crypto.Protocol.KDF import PBKDF2
+    except ImportError:
+        print >>sys.stderr, "Import of PyCrypto failed, please make sure AES and PBKDF2 modules are available in your PyCrypto package"
+
+    if os.uname()[0] == 'Darwin':
+        # The following module is needed only on Apple platforms for now.
+        # https://pypi.python.org/pypi/keyring
+        import keyring
+
+        if browser == 'Google Chrome':
+            service_name = 'Chrome Safe Storage'
+            username = 'Chrome'
+        else:
+            service_name = 'Chromium Safe Storage'
+            username = 'Chromium'
+        password = keyring.get_password(service_name, username)
+        password = password.encode('utf8')
+        iterations = 1003
+    elif os.uname()[0] == 'Linux':
+        # Chrome and Chromium don't use the GNOME keyring. See also
+        # https://code.google.com/p/chromium/issues/detail?id=364326
+        password = 'peanuts'.encode('utf8')
+        iterations = 1
+    else:
+        print >>sys.stderr, "%s cookies decryption not supported on this platform" % browser
+        return cookies
+
+    # Default values used by both Chrome and Chromium in OSX and Linux
+    salt = b'saltysalt'
+    iv = b' ' * 16
+    length = 16
+
+    new_cookies = []
+    for name, encrypted_value, path, expiry in cookies:
+        # Trim off the 'v10' that Chrome/ium prepends
+        if encrypted_value[:3] != 'v10':
+            print >>sys.stderr, "Unknown cookie encrypted_value header found: %s. Skipping." % encrypted_value[:3]
+            continue
+        encrypted_value = encrypted_value[3:]
+        key = PBKDF2(password, salt, length, iterations)
+        cipher = AES.new(key, AES.MODE_CBC, IV=iv)
+
+        decrypted = cipher.decrypt(encrypted_value)
+        # Get rid of padding.
+        new_cookies.append((name, decrypted[:-ord(decrypted[-1])], path, expiry))
+
+    return new_cookies
+
 # Shared for Chromium and Google Chrome
 def get_bugzilla_cookies_chr(host, browser, config_dir):
     config_dir = os.path.expanduser(config_dir)
@@ -712,8 +767,7 @@ def get_bugzilla_cookies_chr(host, browser, config_dir):
     if not os.path.exists(cookies_sqlite):
         raise CookieError("%s doesn't exist" % cookies_sqlite)
     return get_cookies_from_sqlite(host, cookies_sqlite, browser,
-                                   "select name,value,path,expires_utc from cookies where host_key in (:host, '.'||:host)",
-                                   chromium_time=True)
+                                   "select name,encrypted_value,path,expires_utc from cookies where host_key in (:host, '.'||:host)")
 
 def get_bugzilla_cookies_chromium(host):
     if os.uname()[0] == 'Darwin':
