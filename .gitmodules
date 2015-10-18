@@ -1,3 +1,9 @@
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = https://github.com/klen/python-mode
+[submodule "vim/bundle/unite"]
+	path = vim/bundle/unite
+	url = https://github.com/Shougo/unite.vim
+[submodule "vim/bundle/vimproc"]
+	path = vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.vim.git

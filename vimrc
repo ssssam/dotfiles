@@ -49,5 +49,13 @@ set tabstop=4
 autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 
-" Map :W to :w.
+" Map :W to :w. (I regularly mistype it).
 command W w
+
+" NetRW (file browser) configuration
+" - browse tree style by default
+let g:netrw_liststyle=3
+
+" Unite.vim configuration
+"   - based on http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
