@@ -17,3 +17,7 @@ alias gr.c="git rebase --continue"
 alias gr.i="git rebase --autosquash --interactive"
 alias grup="git remote update --prune"
 alias gs="git status"
+
+alias sprunge='curl -s -S -F "sprunge=<-" http://sprunge.us'
+
+alias edit='gvim --remote'
