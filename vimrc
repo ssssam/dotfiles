@@ -58,4 +58,13 @@ let g:netrw_liststyle=3
 
 " Unite.vim configuration
 "   - based on http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html
-nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
+
+" \b is a more awkward combination, but it kind of makes more sense for the
+" 'view buffer' command!
+nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer -start-insert buffer<cr>
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>f :<C-u>UniteWithBufferDir -no-split -buffer-name=files -start-insert file<cr>
+
+nnoremap Q <nop>
