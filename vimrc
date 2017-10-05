@@ -14,6 +14,7 @@ let g:pymode_trim_whitespaces = 0
 let g:pymode_rope = 0
 
 " UI stuff
+set belloff=all
 set hidden
 set nobackup
 set scrolloff=4
