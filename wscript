@@ -24,6 +24,8 @@ install_targets = [
     ('bin', '${PREFIX}/bin'),
     ('bash_profile', '~/.bash_profile'),
     ('bashrc', '~/.bashrc'),
+    ('fish/config.fish', '~/.config/fish/config.fish'),
+    ('fish/functions/fisher.fish', '~/.config/fish/functions/fisher.fish'),
     ('gitconfig', '~/.gitconfig'),
     ('gitignore', '~/.gitignore'),
     ('profile', '~/.profile'),
