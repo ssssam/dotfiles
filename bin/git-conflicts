@@ -7,4 +7,6 @@ set -eu
 WORKTREE=$(git rev-parse --show-toplevel)
 FILES=$(git status --porcelain | sed -n -e "/^[UM][UM] / s@^.. @$WORKTREE/@ p")
 
-echo $FILES
+for f in $FILES; do
+	echo $f
+done
