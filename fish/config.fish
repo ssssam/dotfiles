@@ -1,8 +1,10 @@
+set -U fish_user_paths $fish_user_paths ~/.local/bin
+
 # https://github.com/ewilliam/import-aliases might make this
 # easier, but it doesn't work with Fish 2.3.1 at time of writing.
 
 function edit
-  gvim --remote $argv
+  gvim --remote-tab $argv
 end
 
 function ga
