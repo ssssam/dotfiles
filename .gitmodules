@@ -7,3 +7,6 @@
 [submodule "vim/bundle/vimproc"]
 	path = vim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "rhythmbox/random-album-player"]
+	path = rhythmbox/random-album-player
+	url = https://github.com/javonharper/Rhythmbox-Random-Album-Player
