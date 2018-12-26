@@ -1,0 +1,17 @@
+directory: /home/sam/External/Music
+library: /home/sam/.local/share/beets/musiclibrary.db
+
+import:
+  move: yes
+  write: no
+  log: /home/sam/.local/share/beets/import.log
+
+plugins: chroma copyartifacts duplicates export follow fromfilename fuzzy importadded missing web
+
+paths:
+  default: $albumartist - $album [$original_year]/$track $title
+  singleton: $artist/$title
+  comp: $album [$original_year]/$track $title
+
+include:
+  - config-follow-muspy.yaml
