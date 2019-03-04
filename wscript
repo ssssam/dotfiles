@@ -24,6 +24,7 @@ install_targets = [
     ('bin', '${PREFIX}/bin'),
     ('bash_profile', '~/.bash_profile'),
     ('bashrc', '~/.bashrc'),
+    ('beets/config.yaml', '~/.config/beets/config.yaml'),
     ('fish/config.fish', '~/.config/fish/config.fish'),
     ('fish/functions/fisher.fish', '~/.config/fish/functions/fisher.fish'),
     ('gitconfig', '~/.gitconfig'),
