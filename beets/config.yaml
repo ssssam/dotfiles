@@ -3,15 +3,25 @@ library: /home/sam/.local/share/beets/musiclibrary.db
 
 import:
   move: yes
-  write: no
+  write: yes
   log: /home/sam/.local/share/beets/import.log
 
-plugins: chroma copyartifacts duplicates export follow fromfilename fuzzy importadded missing web
+plugins: chroma copyartifacts duplicates export follow fromfilename fuzzy importadded missing play random web
 
 paths:
+  # For random collections of music received from people that don't have a specific order
+  collection::^.+$: $collection/$artist - $title
+  
   default: $albumartist - $album [$original_year]/$track $title
   singleton: $artist/$title
   comp: $album [$original_year]/$track $title
+  
 
 include:
   - config-follow-muspy.yaml
+
+copyartifacts:
+  print_ignored: yes
+
+play:
+  command: /usr/bin/rhythmbox
