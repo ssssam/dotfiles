@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=Lesson Planalyzer
+Name=Lesson Planalyzer
+Exec=/home/sam/.local/bin/planalyze-wrapper.sh
+Categories=Education
+Type=Application

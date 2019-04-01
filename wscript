@@ -21,6 +21,7 @@ def configure(conf):
 # This can be a file or a directory, directories are recursed into
 # and everything within is installed.
 install_targets = [
+    ('applications/planalyze.desktop', '~/.local/share/applications/planalyze.desktop'),
     ('bin', '${PREFIX}/bin'),
     ('bash_profile', '~/.bash_profile'),
     ('bashrc', '~/.bashrc'),
