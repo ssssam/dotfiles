@@ -1,0 +1,26 @@
+#!/bin/sh
+# Backport a merge from 'master' branch of a project to a stable branch.
+
+set -eu
+
+merge_commit=$1
+tmp_branch_name=$2
+
+target_branch=$(git rev-parse --abbrev-ref HEAD)
+merge_ancestors=$(git show ${merge_commit} | grep '^Merge: ' | cut -d ' ' -f 2-)
+
+merge_base=$(git merge-base $merge_ancestors)
+
+echo "Backporting the following commits onto ${target_branch}:"
+git log --oneline $merge_base..$merge_commit^2
+
+git checkout -b ${tmp_branch_name}
+trap 'echo "Aborting due to error."; git cherry-pick --abort; git checkout ${target_branch}; git branch --delete ${tmp_branch_name};' ERR
+
+# If this fails, it may mean that the commit is already present in the target branch.
+git log --oneline $merge_base..$merge_commit^2 | cut -d ' ' -f 1 | xargs git cherry-pick
+
+git checkout ${target_branch}
+git merge --no-ff ${tmp_branch_name}
+
+git branch --delete ${tmp_branch_name}
