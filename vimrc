@@ -52,7 +52,7 @@ autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 
 " For Riot.js
-autocmd BufRead,BufNewFile *.tag setfiletype html
+autocmd BufRead,BufNewFile *.riot,*.tag setfiletype html
 
 " Map :W to :w. (I regularly mistype it).
 command W w
