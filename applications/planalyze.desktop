@@ -2,5 +2,7 @@
 Comment=Lesson Planalyzer
 Name=Lesson Planalyzer
 Exec=/home/sam/.local/bin/planalyze-wrapper.sh
+StartupWMClass=planalyze-gtk
+Icon=com.gitlab.samthursfield.planalyze
 Categories=Education
 Type=Application
