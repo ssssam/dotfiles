@@ -26,6 +26,7 @@ install_targets = [
     ('bash_profile', '~/.bash_profile'),
     ('bashrc', '~/.bashrc'),
     ('beets/config.yaml', '~/.config/beets/config.yaml'),
+    ('flexget/config.yml', '~/.config/flexget/config.yml'),
     ('fish/config.fish', '~/.config/fish/config.fish'),
     ('fish/functions/fisher.fish', '~/.config/fish/functions/fisher.fish'),
     ('gitconfig', '~/.gitconfig'),

@@ -1,0 +1,30 @@
+templates:
+  podcast:
+    accept_all: yes
+    limit_new: 1
+
+tasks:
+  pod1:
+    rss: https://feeds.transistor.fm/living-adventurously
+    download: /home/sam/Podcasts/
+    template: podcast
+  pod2:
+    rss: https://audioboom.com/channels/2399216.rss
+    download: /home/sam/Podcasts/
+    template: podcast
+  pod3:
+    rss: http://rss.acast.com/adambuxton
+    download: /home/sam/Podcasts/
+    template: podcast
+  pod4:
+    rss: http://rss.art19.com/the-daily
+    download: /home/sam/Podcasts/
+    template: podcast
+  pod5:
+    rss: http://feed.songexploder.net/SongExploder
+    download: /home/sam/Podcasts/
+    template: podcast
+  pod6:
+    rss: http://rss.acast.com/distractionpieces
+    download: /home/sam/Podcasts/
+    template: podcast
