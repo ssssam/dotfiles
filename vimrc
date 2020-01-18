@@ -66,3 +66,19 @@ let g:netrw_liststyle=3
 
 " I hit this key accidentally too much, disable it.
 nnoremap Q <nop>
+
+" Insert line below the cursor.
+function! InsertLine(text)
+    execute "normal! \<Esc>o".a:text
+endfunction
+
+" Insert a date header
+function! DayWithSuffix()
+    let _day=strftime("%d")
+    if (_day == 1 || _day == 11 || _day == 21 || _day == 31) | let _prefix="st"
+    elseif (_day == 2 || _day == 12 || _day == 22) | let _prefix="nd"
+    elseif (_day == 3 || _day == 13 || _day == 23) | let _prefix="rd"
+    else | let _prefix="th" | endif
+    return _day._prefix
+endfunction
+:command! Date :call InsertLine(strftime("%A ").DayWithSuffix().strftime(" %B %Y").":\n")
