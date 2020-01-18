@@ -9,6 +9,7 @@ tasks:
     download: /home/sam/Podcasts/
     template: podcast
   pod2:
+    # No Such Thing As A Fish
     rss: https://audioboom.com/channels/2399216.rss
     download: /home/sam/Podcasts/
     template: podcast
