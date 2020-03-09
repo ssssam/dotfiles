@@ -1,2 +1,2 @@
 " C specific options.
-set noexpandtab
+setlocal noexpandtab

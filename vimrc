@@ -42,12 +42,19 @@ endif
 
 " Editing defaults. Filetype-specific overrides go in
 " .vim/ftplugin/$FILETYPE.vim
-set expandtab
+
+" Visualize tabs by default.
 set list
-set listchars=trail:.,tab:>- 
+set listchars=trail:.,tab:>-
+
 set nowrap
+
+" Indent related flags. Default to Python style (no tabs).
+set expandtab
 set shiftwidth=4
 set tabstop=4
+set copyindent
+set preserveindent
 
 " For Vala
 " FIXME: is there a way to do this using Pathogen.vim automatically?
