@@ -50,6 +50,7 @@ set listchars=trail:.,tab:>-
 set nowrap
 
 " Indent related flags. Default to Python style (no tabs).
+set autoindent
 set expandtab
 set shiftwidth=4
 set tabstop=4
