@@ -10,3 +10,6 @@
 [submodule "rhythmbox/random-album-player"]
 	path = rhythmbox/random-album-player
 	url = https://github.com/javonharper/Rhythmbox-Random-Album-Player
+[submodule "vim/bundle/vim-smarttabs"]
+	path = vim/bundle/vim-smarttabs
+	url = https://github.com/dpc/vim-smarttabs
