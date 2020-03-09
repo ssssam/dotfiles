@@ -13,3 +13,9 @@
 [submodule "vim/bundle/vim-smarttabs"]
 	path = vim/bundle/vim-smarttabs
 	url = https://github.com/dpc/vim-smarttabs
+[submodule "vim/bundle/indenttab"]
+	path = vim/bundle/indenttab
+	url = https://github.com/vim-scripts/IndentTab
+[submodule "vim/bundle/vim-ingo-library"]
+	path = vim/bundle/vim-ingo-library
+	url = https://github.com/inkarkat/vim-ingo-library
