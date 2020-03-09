@@ -74,7 +74,8 @@ endfunction
 
 " Insert a date header
 function! DayWithSuffix()
-    let _day=strftime("%d")
+    let _day=trim(strftime("%e"))
+
     if (_day == 1 || _day == 11 || _day == 21 || _day == 31) | let _prefix="st"
     elseif (_day == 2 || _day == 12 || _day == 22) | let _prefix="nd"
     elseif (_day == 3 || _day == 13 || _day == 23) | let _prefix="rd"
