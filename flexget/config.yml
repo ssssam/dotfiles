@@ -2,30 +2,32 @@ templates:
   podcast:
     accept_all: yes
     limit_new: 1
+    download:
+      path: /home/sam/Podcasts/
+      # FIXME: we hardcode the .mp3 extension, which works by coincidence.
+      # FlexGet doesn't seem to support renaming while keeping the extension
+      # of the original file.
+      # (See also: https://discuss.flexget.com/t/how-to-rename-the-files-and-keep-the-file-extension-at-download/3684
+      #  which is wrong).
+      filename: '{{title}}.mp3'
 
 tasks:
   pod1:
     rss: https://feeds.transistor.fm/living-adventurously
-    download: /home/sam/Podcasts/
     template: podcast
   pod2:
     # No Such Thing As A Fish
     rss: https://audioboom.com/channels/2399216.rss
-    download: /home/sam/Podcasts/
     template: podcast
   pod3:
     rss: http://rss.acast.com/adambuxton
-    download: /home/sam/Podcasts/
     template: podcast
   pod4:
     rss: http://rss.art19.com/the-daily
-    download: /home/sam/Podcasts/
     template: podcast
   pod5:
     rss: http://feed.songexploder.net/SongExploder
-    download: /home/sam/Podcasts/
     template: podcast
   pod6:
     rss: http://rss.acast.com/distractionpieces
-    download: /home/sam/Podcasts/
     template: podcast
