@@ -19,3 +19,9 @@
 [submodule "vim/bundle/vim-ingo-library"]
 	path = vim/bundle/vim-ingo-library
 	url = https://github.com/inkarkat/vim-ingo-library
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "vim/bundle/vim-snippets"]
+	path = vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets/
