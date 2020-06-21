@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets/
+[submodule "vim/bundle/vim-gnomealign"]
+	path = vim/bundle/vim-gnomealign
+	url = https://github.com/schaeferpp/vim-gnomealign

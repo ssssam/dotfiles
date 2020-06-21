@@ -75,6 +75,9 @@ let g:netrw_liststyle=3
 " I hit this key accidentally too much, disable it.
 nnoremap Q <nop>
 
+" Align params (using https://github.com/schaeferpp/vim-gnomealign)
+map     ,a    :GNOMEAlignArguments<CR>
+
 " Insert line below the cursor.
 function! InsertLine(text)
     execute "normal! \<Esc>o".a:text
