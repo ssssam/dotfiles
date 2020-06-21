@@ -9,6 +9,7 @@ call pathogen#helptags()
 
 filetype plugin indent on
 
+" Python Mode configuration
 let g:pymode_folding = 0
 let g:pymode_lint_on_write = 0
 let g:pymode_trim_whitespaces = 0
@@ -16,6 +17,12 @@ let g:pymode_python = 'python3'
 
 " Workaround for https://github.com/klen/python-mode/issues/405
 let g:pymode_rope = 0
+
+" UltiSnips snippet engine configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " UI stuff
 set belloff=all
