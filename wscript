@@ -1,3 +1,7 @@
+# Install script for dotfiles.
+#
+# This creates symlinks in the install path pointing to the source tree.
+
 import os
 
 import waflib.Utils
@@ -22,8 +26,14 @@ def configure(conf):
 # and everything within is installed.
 install_targets = [
     ('applications/planalyze.desktop', '~/.local/share/applications/planalyze.desktop'),
-    ('bin', '${PREFIX}/bin'),
-    ('bash_profile', '~/.bash_profile'),
+    ('bin/baserock-format-patches', '${PREFIX}/bin/baserock-format-patches'),
+    ('bin/fetch-list', '${PREFIX}/bin/fetch-list'),
+    ('bin/git-active-days', '${PREFIX}/bin/git-active-days'),
+    ('bin/git-backport-merge', '${PREFIX}/bin/git-backport-merge'),
+    ('bin/git-bz', '${PREFIX}/bin/git-bz'),
+    ('bin/git-conflicts', '${PREFIX}/bin/git-conflicts'),
+    ('bin/morph-list-branches', '${PREFIX}/bin/morph-list-branches'),
+    ('bin/planalyze-wrapper.sh', '${PREFIX}/bin/planalyze-wrapper.sh'),
     ('bashrc', '~/.bashrc'),
     ('beets/config.yaml', '~/.config/beets/config.yaml'),
     ('flexget/config.yml', '~/.config/flexget/config.yml'),
