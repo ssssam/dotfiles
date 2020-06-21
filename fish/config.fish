@@ -1,5 +1,7 @@
 set -U fish_user_paths $fish_user_paths ~/.local/bin
 
+fish_vi_key_bindings
+
 # https://github.com/ewilliam/import-aliases might make this
 # easier, but it doesn't work with Fish 2.3.1 at time of writing.
 
