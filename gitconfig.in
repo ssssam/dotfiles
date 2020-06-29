@@ -1,9 +1,0 @@
-[user]
-	name = Sam Thursfield
-[core]
-	editor = vim
-	excludesfile = ~/.gitignore
-[color]
-	ui = auto
-[push]
-	default = current

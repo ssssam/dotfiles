@@ -1,7 +1,0 @@
-[sendemail]
-        from = Sam Thursfield <sam.thursfield@codethink.co.uk>
-        smtpserver = mail.codethink.co.uk
-        smtpserverport = 465
-        smtpencryption = ssl
-        smtpuser = samthursfield
-        suppresscc = self
