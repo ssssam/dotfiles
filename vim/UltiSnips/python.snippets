@@ -1,0 +1,27 @@
+snippet argparser "argument parser function"
+
+def argument_parser():
+	parser = argparse.ArgumentParser(
+		description="$1:App")
+	parser.add_argument('--debug', dest='debug', action='store_true',
+	                    help="Enable detailed logging to stderr")
+	return parser
+
+endsnippet
+
+
+snippet main "script skeleton"
+import os
+import sys
+
+
+def main():
+	pass
+
+
+try:
+	main()
+except RuntimeError as e:
+	sys.stderr.write("ERROR: {}\n".format(e))
+	sys.exit(1)
+endsnippet
