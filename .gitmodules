@@ -28,3 +28,6 @@
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "vim/bundle/vim-fetch"]
+	path = vim/bundle/vim-fetch
+	url = https://github.com/wsdjeg/vim-fetch
