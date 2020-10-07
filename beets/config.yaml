@@ -6,7 +6,7 @@ import:
   write: yes
   log: /home/sam/.local/share/beets/import.log
 
-plugins: check chroma duplicates export fromfilename fuzzy importadded missing play random web
+plugins: check chroma duplicates export fromfilename fuzzy importadded info missing play random web
 
 paths:
   # For random collections of music received from people that don't have a specific order
