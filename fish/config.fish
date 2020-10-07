@@ -9,70 +9,20 @@ function edit
   gvim --remote-tab $argv
 end
 
-function ga
-  git add $argv
-end
-
-function gb
-  git branch $argv
-end
-
-function gcp
-  git cherry-pick $argv
-end
-
-function gd.
-  git diff $argv
-end
-
-function gd.c
-  git diff --cached $argv
-end
-
-function gco
-  git checkout $argv
-end
-
-function gci
-  git commit $argv
-end
-
-function gd.
-  git diff $argv
-end
-
-function gd.c
-  git diff --cached $argv
-end
-
-function gl
-  git log $argv
-end
-
-function gm.n
-  git merge --no-ff --no-commit $argv
-end
-
-function gr.
-  git rebase $argv
-end
-
-function gr.a
-  git rebase --abort $argv
-end
-
-function gr.c
-  git rebase --continue $argv
-end
-
-function gr.i
-  git rebase --autosquash --interactive $argv
-end
-
-function grup
-  git remote update --prune $argv
-end
-
-function gs
-  git status $argv
-end
+abbr ga "git add $argv"
+abbr gb "git branch $argv"
+abbr gcp "git cherry-pick $argv"
+abbr gd. " git diff $argv"
+abbr gd.c "git diff --cached $argv"
+abbr gco "git checkout $argv"
+abbr gci "git commit $argv"
+abbr gd. " git diff $argv"
+abbr gd.c "git diff --cached $argv"
+abbr gl "git log $argv"
+abbr gm.n "git merge --no-ff --no-commit $argv"
+abbr gr. " git rebase $argv"
+abbr gr.a "git rebase --abort $argv"
+abbr gr.c "git rebase --continue $argv"
+abbr gr.i "git rebase --autosquash --interactive $argv"
+abbr grup "git remote update --prune $argv"
+abbr gs "git status $argv"
