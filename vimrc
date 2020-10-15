@@ -101,3 +101,12 @@ function! DayWithSuffix()
     return _day._prefix
 endfunction
 :command! Date :call InsertLine(strftime("%A ").DayWithSuffix().strftime(" %B %Y").":\n")
+
+" CTRL+j/k to move lines around
+" From https://vimtricks.substack.com/p/vimtrick-moving-lines
+nnoremap <c-j> :m .+1<CR>==
+nnoremap <c-k> :m .-2<CR>==
+inoremap <c-j> <Esc>:m .+1<CR>==gi
+inoremap <c-k> <Esc>:m .-2<CR>==gi
+vnoremap <c-j> :m '>+1<CR>gv=gv
+vnoremap <c-k> :m '<-2<CR>gv=gv
