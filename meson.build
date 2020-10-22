@@ -16,6 +16,7 @@ symlinks = [
   ['bin/git-conflicts', bindir / 'git-conflicts'],
   ['bin/morph-list-branches', bindir / 'morph-list-branches'],
   ['bin/planalyze-wrapper.sh', bindir / 'planalyze-wrapper.sh'],
+  ['bin/playlists-export-for-rhythmbox.py', bindir / 'playlists-export-for-rhythmbox'],
   ['bin/update-specfile-from-git.py', bindir / 'update-specfile-from-git'],
   ['bashrc', '.bashrc'],
   ['beets/config.yaml', configdir / 'beets/config.yaml'],
@@ -38,3 +39,4 @@ foreach symlink : symlinks
 endforeach
 
 subdir('rhythmbox')
+subdir('systemd')

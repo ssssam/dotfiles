@@ -1,0 +1,21 @@
+systemd_user_unit_dir = configdir / 'systemd' / 'user'
+
+units = [
+  'sync-rhythmbox-playlists.path',
+  'sync-rhythmbox-playlists.service',
+]
+
+foreach unit : units
+  install_data(unit,
+    install_dir: systemd_user_unit_dir)
+endforeach
+
+enable_units = [
+  'sync-rhythmbox-playlists.path'
+]
+
+foreach unit : enable_units
+  from = get_option('prefix') / systemd_user_unit_dir / unit
+  to = get_option('prefix') / systemd_user_unit_dir / 'default.target.wants' / unit
+  meson.add_install_script('sh', '-c', 'ln -sf "@0@" "@1@"'.format(from, to))
+endforeach
