@@ -31,3 +31,9 @@
 [submodule "vim/bundle/vim-fetch"]
 	path = vim/pack/vendor/start/vim-fetch
 	url = https://github.com/wsdjeg/vim-fetch
+[submodule "rhythmbox/lastfm_queue"]
+	path = rhythmbox/lastfm_queue
+	url = https://github.com/asermax/lastfm_queue
+[submodule "rhythmbox/rhythmbox-plugins-open-containing-folder"]
+	path = rhythmbox/rhythmbox-plugins-open-containing-folder
+	url = https://github.com/donaghhorgan/rhythmbox-plugins-open-containing-folder

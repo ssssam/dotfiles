@@ -36,3 +36,5 @@ foreach symlink : symlinks
   # Keep an eye on https://github.com/mesonbuild/meson/issues/1602 ...
   meson.add_install_script('sh', '-c', 'mkdir -p $(dirname "@1@") && ln -sf "@0@" "@1@"'.format(from, to))
 endforeach
+
+subdir('rhythmbox')
