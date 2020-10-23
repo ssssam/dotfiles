@@ -12,6 +12,11 @@ warnings.showwarning = lambda msg, cat, filename, lineno, file=None, line=None: 
 playlists_path = pathlib.Path(sys.argv[1])
 rb_playlists_path = pathlib.Path(sys.argv[2])
 
+# Remove old ones.
+for path in rb_playlists_path.glob('*.m3u'):
+    path.unlink()
+
+
 for path in playlists_path.rglob('**/*.xspf'):
     if path.parts[-2] == 'Rhythmbox':
         continue
@@ -22,6 +27,17 @@ for path in playlists_path.rglob('**/*.xspf'):
         sys.stderr.write(f"{path}: {e.args[0]}\n")
         continue
 
-    output_filename = str(path.relative_to(playlists_path)).replace('/', '_').replace('.xspf', '.m3u')
-    output_path = rb_playlists_path.joinpath(output_filename)
-    output_path.write_text(calliope.export.convert_to_m3u(contents, location_required=False))
+    n_tracks_with_location = len(list(item for item in contents if ('location' in item)))
+
+    if n_tracks_with_location > 0:
+        print("Output %s with %i tracks" % (path.name, n_tracks_with_location))
+
+        output_filename = str(path.relative_to(playlists_path))
+        output_filename = output_filename.replace('/', '_').replace('.xspf', '.m3u')
+
+        # Work around a Rhythmbox bug -- empty title is
+        # created if a # appears in the title, triggering crashes later on.
+        output_filename = output_filename.replace('#', '')
+
+        output_path = rb_playlists_path.joinpath(output_filename)
+        output_path.write_text(calliope.export.convert_to_m3u(contents, location_required=False))
