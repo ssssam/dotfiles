@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+# Export playlists from XSPF to M3U, for Rhythmbox and other apps to import.
+#
+# Uses Calliope to convert playlist and Tracker to resolve content locations.
+
+import argparse
+import logging
 import pathlib
 import sys
 import warnings
@@ -9,35 +15,72 @@ import calliope
 # Prettify 'missing location' warnings from convert_to_m3u()
 warnings.showwarning = lambda msg, cat, filename, lineno, file=None, line=None: sys.stderr.write(f"Warning: {msg}\n")
 
-playlists_path = pathlib.Path(sys.argv[1])
-rb_playlists_path = pathlib.Path(sys.argv[2])
 
-# Remove old ones.
-for path in rb_playlists_path.glob('*.m3u'):
-    path.unlink()
+def argument_parser():
+    parser = argparse.ArgumentParser(description="Playlist Export to M3U")
+    parser.add_argument('--debug', dest='debug', action='store_true',
+                        help="Enable detailed logging to stderr")
+    parser.add_argument('--delete', action='store_true', default=False,
+                        help="Delete all existing .m3u files in OUTPUT dir")
+    parser.add_argument('input_path', type=pathlib.Path)
+    parser.add_argument('output_path', type=pathlib.Path, nargs='?')
+    return parser
 
 
-for path in playlists_path.rglob('**/*.xspf'):
-    if path.parts[-2] == 'Rhythmbox':
-        continue
-
+def convert_playlist(in_path, out_path=None):
+    logging.debug("Converting %s to %s", in_path, out_path)
     try:
-        contents = calliope.import_.import_(path.read_text())
+        contents = calliope.import_.import_(in_path.read_text())
     except RuntimeError as e:
-        sys.stderr.write(f"{path}: {e.args[0]}\n")
-        continue
+        sys.stderr.write(f"{in_path}: {e.args[0]}\n")
+        return
 
-    n_tracks_with_location = len(list(item for item in contents if ('location' in item)))
+    tracker = calliope.tracker.TrackerContext()
+    resolved_contents = list(calliope.tracker.resolve_content(tracker, contents))
+
+    n_tracks_with_location = len(list(item for item in resolved_contents
+                                    if ('location' in item)))
 
     if n_tracks_with_location > 0:
-        print("Output %s with %i tracks" % (path.name, n_tracks_with_location))
+        logging.info("Output %s with %i tracks" % (out_path, n_tracks_with_location))
 
-        output_filename = str(path.relative_to(playlists_path))
-        output_filename = output_filename.replace('/', '_').replace('.xspf', '.m3u')
+        text = calliope.export.convert_to_m3u(resolved_contents, location_required=False)
+        if out_path:
+            out_path.write_text(text)
+        else:
+            sys.stdout.write(text)
+            sys.stdout.write('\n')
 
-        # Work around a Rhythmbox bug -- empty title is
-        # created if a # appears in the title, triggering crashes later on.
-        output_filename = output_filename.replace('#', '')
 
-        output_path = rb_playlists_path.joinpath(output_filename)
-        output_path.write_text(calliope.export.convert_to_m3u(contents, location_required=False))
+def main():
+    args = argument_parser().parse_args()
+
+    if args.debug:
+        logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
+
+    if args.output_path and args.output_path.is_dir() and args.delete:
+        logging.info("Removing existing .m3u playlists in %s", args.output_path)
+        for path in args.output_path.glob('*.m3u'):
+            path.unlink()
+
+    if args.input_path.is_dir():
+        for in_path in args.input_path.glob('*.xspf'):
+            out_filename = str(in_path.relative_to(args.input_path))
+            out_filename = out_filename.replace('/', '_').replace('.xspf', '.m3u')
+
+            # Work around a Rhythmbox bug -- empty title is
+            # created if a # appears in the title, triggering crashes later on.
+            out_filename = out_filename.replace('#', '')
+
+            out_path = args.output_path.joinpath(out_filename)
+
+            convert_playlist(in_path, out_path)
+    else:
+        convert_playlist(args.input_path, args.output_path)
+
+
+try:
+    main()
+except RuntimeError as e:
+    sys.stderr.write("ERROR: {}\n".format(e))
+    sys.exit(1)
