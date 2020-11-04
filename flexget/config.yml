@@ -38,3 +38,6 @@ tasks:
   pod8:
     rss: https://feeds.megaphone.fm/JJW5546407535
     template: podcast
+  pod9:
+    rss: https://rss.acast.com/robautonpodcast
+    template: podcast
