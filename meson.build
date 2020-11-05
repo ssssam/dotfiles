@@ -7,7 +7,8 @@ bindir = '.local' / 'bin'
 datadir = '.local' / 'share'
 
 symlinks = [
-  ['applications/planalyze.desktop', configdir / 'applications/planalyze.desktop'],
+  ['applications/joplin.desktop', datadir / 'applications/joplin.desktop'],
+  ['applications/planalyze.desktop', datadir / 'applications/planalyze.desktop'],
   ['bin/baserock-format-patches', bindir / 'baserock-format-patches'],
   ['bin/fetch-list', bindir / 'fetch-list'],
   ['bin/git-active-days', bindir / 'git-active-days'],
@@ -20,6 +21,7 @@ symlinks = [
   ['bin/update-specfile-from-git.py', bindir / 'update-specfile-from-git'],
   ['bashrc', '.bashrc'],
   ['beets/config.yaml', configdir / 'beets/config.yaml'],
+  ['icons/joplin.png', datadir / 'icons/hicolor/256x256/apps/joplin.png'],
   ['flexget/config.yml', configdir / 'flexget/config.yml'],
   ['fish/config.fish', configdir / 'fish/config.fish'],
   ['fish/functions/fisher.fish', configdir / 'fish/functions/fisher.fish'],
