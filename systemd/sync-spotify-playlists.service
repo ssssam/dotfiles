@@ -1,0 +1,8 @@
+[Unit]
+Description="Sync Spotify playlists from remote"
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/home/sam/.local/bin/playlists-export-spotify
+Type=oneshot

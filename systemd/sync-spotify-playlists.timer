@@ -1,0 +1,10 @@
+[Unit]
+Description="Sync Spotify playlists from remote"
+
+[Timer]
+OnStartupSec=1m
+OnUnitActiveSec=1h
+Unit=sync-spotify-playlists.service
+
+[Install]
+WantedBy=default.target

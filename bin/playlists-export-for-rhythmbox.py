@@ -55,7 +55,7 @@ def convert_playlist(in_path, out_path=None):
             sys.stdout.write('\n')
     else:
         logging.info("Removing empty playlist %s", out_path)
-        out_path.unlink()
+        out_path.unlink(missing_ok=True)
 
     for item in missing_items:
         logging.info("Missing: %s - %s", item.get('creator'), item.get('title'))

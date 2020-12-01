@@ -18,6 +18,8 @@ symlinks = [
   ['bin/morph-list-branches', bindir / 'morph-list-branches'],
   ['bin/planalyze-wrapper.sh', bindir / 'planalyze-wrapper.sh'],
   ['bin/playlists-export-for-rhythmbox.py', bindir / 'playlists-export-for-rhythmbox'],
+  ['bin/playlists-export-spotify.py', bindir / 'playlists-export-spotify'],
+  ['bin/playlists-export-youtube.py', bindir / 'playlists-export-youtube'],
   ['bin/update-specfile-from-git.py', bindir / 'update-specfile-from-git'],
   ['bashrc', '.bashrc'],
   ['beets/config.yaml', configdir / 'beets/config.yaml'],
