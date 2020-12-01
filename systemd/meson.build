@@ -19,7 +19,6 @@ enable_units = [
   'sync-spotify-playlists.timer',
   'sync-youtube-playlists.timer',
 ]
-]
 
 foreach unit : enable_units
   from = get_option('prefix') / systemd_user_unit_dir / unit
