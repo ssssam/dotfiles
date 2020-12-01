@@ -5,6 +5,8 @@ units = [
   'sync-rhythmbox-playlists.service',
   'sync-spotify-playlists.service',
   'sync-spotify-playlists.timer',
+  'sync-youtube-playlists.service',
+  'sync-youtube-playlists.timer',
 ]
 
 foreach unit : units
@@ -15,6 +17,8 @@ endforeach
 enable_units = [
   'sync-rhythmbox-playlists.path',
   'sync-spotify-playlists.timer',
+  'sync-youtube-playlists.timer',
+]
 ]
 
 foreach unit : enable_units
