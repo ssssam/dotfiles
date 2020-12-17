@@ -9,6 +9,10 @@ function edit
   gvim --remote-tab $argv
 end
 
+function sprunge
+  curl -s -S -F "sprunge=<-" http://sprunge.us
+end
+
 abbr ga "git add $argv"
 abbr gb "git branch $argv"
 abbr gcp "git cherry-pick $argv"
