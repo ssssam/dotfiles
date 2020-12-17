@@ -22,4 +22,4 @@ gdbus call --session \
       --method org.gnome.Rhythmbox3.PlaylistManager.ImportPlaylist \
       "$url"
 
-#rm $filename
+rm $filename
