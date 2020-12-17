@@ -15,6 +15,10 @@ gdbus call --session \
       --method org.gtk.Application.Activate \
       "[]"
 
+# FIXME: Rhythmbox seems to not show the GUI if we call the next API without
+# sleeping first.
+sleep 1
+
 echo "Importing ${url} to Rhythmbox"
 gdbus call --session \
       --dest org.mpris.MediaPlayer2.rhythmbox \
