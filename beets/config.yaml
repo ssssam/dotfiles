@@ -5,6 +5,8 @@ import:
   move: yes
   write: yes
   log: /home/sam/.local/share/beets/import.log
+  languages: en es
+
 
 plugins: bandcamp check chroma duplicates export fromfilename fuzzy importadded info missing play random web
 
