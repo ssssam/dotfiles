@@ -39,7 +39,7 @@
 	url = https://github.com/donaghhorgan/rhythmbox-plugins-open-containing-folder
 [submodule "rhythmbox/rhythmbox-plugin-playlists-import-export"]
 	path = rhythmbox/rhythmbox-plugin-playlists-import-export
-	url = https://github.com/petko10/rhythmbox-plugin-playlists-import-export
+	url = https://github.com/ssssam/rhythmbox-plugin-playlists-import-export
 [submodule "vim/pack/vendor/start/sideways"]
 	path = vim/pack/vendor/start/sideways
 	url = https://github.com/AndrewRadev/sideways.vim
