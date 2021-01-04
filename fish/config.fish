@@ -34,3 +34,6 @@ abbr gr.c "git rebase --continue $argv"
 abbr gr.i "git rebase --autosquash --interactive $argv"
 abbr grup "git remote update --prune $argv"
 abbr gs "git status $argv"
+
+# I always forget the -f when removing a Git repo.
+abbr rmgit "rm -Rf"
