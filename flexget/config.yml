@@ -35,9 +35,6 @@ tasks:
   pod7:
     rss: https://www.lostmap.com/podcast?format=rss
     template: podcast
-  pod8:
-    rss: https://feeds.megaphone.fm/JJW5546407535
-    template: podcast
   pod9:
     rss: https://rss.acast.com/robautonpodcast
     template: podcast
