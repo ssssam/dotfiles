@@ -8,7 +8,9 @@ fi
 
 
 # Why was this not here??
-. /etc/bashrc
+if [ -e "/etc/bashrc" ]; then
+    . /etc/bashrc
+fi
 
 PATH=~/.local/bin:$PATH
 
