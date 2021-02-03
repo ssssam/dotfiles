@@ -35,8 +35,17 @@ if has("gui_running")
 
     set number
 else
-    " QBASIC AND FUCK THE WORLD
-    colorscheme blue
+    set t_Co=256
+    " BREAKS EVERYTHING :/
+    " set termguicolors
+
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+    set background=dark    " Setting dark mode
+    colorscheme deus
+    let g:deus_termcolors=256
+
     " FUCK OFF MOUSE TERMINAL INTEGRATION YOU'RE SO ANNOYING
     set mouse-=a
 endif

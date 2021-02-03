@@ -43,3 +43,6 @@
 [submodule "vim/pack/vendor/start/sideways"]
 	path = vim/pack/vendor/start/sideways
 	url = https://github.com/AndrewRadev/sideways.vim
+[submodule "vim/pack/vendor/start/vim-deus"]
+	path = vim/pack/vendor/start/vim-deus
+	url = https://github.com/ajmwagar/vim-deus.git
