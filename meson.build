@@ -12,7 +12,6 @@ symlinks = [
   ['bin/fetch-list', bindir / 'fetch-list'],
   ['bin/git-active-days', bindir / 'git-active-days'],
   ['bin/git-backport-merge', bindir / 'git-backport-merge'],
-  ['bin/git-bz', bindir / 'git-bz'],
   ['bin/git-conflicts', bindir / 'git-conflicts'],
   ['bin/git-mtime', bindir / 'git-mtime'],
   ['bin/morph-list-branches', bindir / 'morph-list-branches'],
