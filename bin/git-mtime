@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Set mtime and atime of current Git working tree.
+
+if [ -z "$1" ]; then
+    echo >&2 "usage: $0 DATETIME"
+    echo >&2 "example: $0 202102031500"
+    echo >&2
+    echo >&2 "See `touch --help` for date format."
+    exit 1
+fi
+
+git ls-tree -z --full-tree -r --name-only HEAD | \
+    xargs --max-procs 8 --null -n 100 touch -t "$1"

@@ -14,6 +14,7 @@ symlinks = [
   ['bin/git-backport-merge', bindir / 'git-backport-merge'],
   ['bin/git-bz', bindir / 'git-bz'],
   ['bin/git-conflicts', bindir / 'git-conflicts'],
+  ['bin/git-mtime', bindir / 'git-mtime'],
   ['bin/morph-list-branches', bindir / 'morph-list-branches'],
   ['bin/planalyze-wrapper.sh', bindir / 'planalyze-wrapper.sh'],
   ['bin/playlists-export-for-rhythmbox.py', bindir / 'playlists-export-for-rhythmbox'],
