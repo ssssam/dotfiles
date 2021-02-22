@@ -12,32 +12,31 @@ templates:
       filename: '{{title}}.mp3'
 
 tasks:
-  pod1:
+  living-adventurously:
     rss: https://feeds.transistor.fm/living-adventurously
     template: podcast
-  pod2:
-    # No Such Thing As A Fish
+  no-such-thing-as-a-fish:
     rss: https://audioboom.com/channels/2399216.rss
     template: podcast
-  pod3:
+  adam-buxton:
     rss: http://rss.acast.com/adambuxton
     template: podcast
-  pod4:
+  new-york-times:
     rss: http://rss.art19.com/the-daily
     template: podcast
-  pod5:
+  song-exploder:
     rss: http://feed.songexploder.net/SongExploder
     template: podcast
     limit_new: 2
-  pod6:
+  scroobius-pip:
     rss: http://rss.acast.com/distractionpieces
     template: podcast
-  pod7:
+  lost-map:
     rss: https://www.lostmap.com/podcast?format=rss
     template: podcast
-  pod8:
+  chris-demakes-a-podcast:
     rss: https://feeds.megaphone.fm/JJW5546407535
     template: podcast
-  pod9:
+  rob-auton-podcast:
     rss: https://rss.acast.com/robautonpodcast
     template: podcast
