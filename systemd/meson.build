@@ -23,5 +23,5 @@ enable_units = [
 foreach unit : enable_units
   from = get_option('prefix') / systemd_user_unit_dir / unit
   to = get_option('prefix') / systemd_user_unit_dir / 'default.target.wants' / unit
-  meson.add_install_script('sh', '-c', 'mkdir -p "@1@" && ln -sf "@0@" "@1@"'.format(from, to))
+  meson.add_install_script('sh', '-c', 'mkdir -p $(dirname "@1@") && ln -sf "@0@" "@1@"'.format(from, to))
 endforeach
