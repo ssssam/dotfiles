@@ -46,3 +46,6 @@
 [submodule "vim/pack/vendor/start/vim-deus"]
 	path = vim/pack/vendor/start/vim-deus
 	url = https://github.com/ajmwagar/vim-deus.git
+[submodule "vim/pack/vendor/start/vim-projectlocal"]
+	path = vim/pack/vendor/start/vim-projectlocal
+	url = https://github.com/krisajenkins/vim-projectlocal
