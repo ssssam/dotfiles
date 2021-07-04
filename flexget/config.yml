@@ -12,9 +12,9 @@ templates:
       filename: '{{title}}.mp3'
 
 tasks:
-  living-adventurously:
-    rss: https://feeds.transistor.fm/living-adventurously
-    template: podcast
+  #living-adventurously:
+  #  rss: https://feeds.transistor.fm/living-adventurously
+  #  template: podcast
   no-such-thing-as-a-fish:
     rss: https://audioboom.com/channels/2399216.rss
     template: podcast
@@ -34,9 +34,13 @@ tasks:
   lost-map:
     rss: https://www.lostmap.com/podcast?format=rss
     template: podcast
-  chris-demakes-a-podcast:
-    rss: https://feeds.megaphone.fm/JJW5546407535
-    template: podcast
   rob-auton-podcast:
     rss: https://rss.acast.com/robautonpodcast
     template: podcast
+  blindboy:
+    rss: https://rss.acast.com/blindboy
+    template: podcast
+  chris-demakes-a-podcast:
+    rss: https://feeds.megaphone.fm/JJW5546407535
+    template: podcast
+    limit_new: 2
