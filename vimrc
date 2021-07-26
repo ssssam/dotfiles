@@ -88,6 +88,11 @@ nnoremap Q <nop>
 " Align params (using https://github.com/schaeferpp/vim-gnomealign)
 map     ,a    :GNOMEAlignArguments<CR>
 
+" Standup logs
+function! Standup()
+    execute "0,$s/^.*<\\w\\+> //"
+endfunction
+
 " Insert line below the cursor.
 function! InsertLine(text)
     execute "normal! \<Esc>o".a:text
