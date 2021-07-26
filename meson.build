@@ -25,7 +25,6 @@ symlinks = [
   ['beets/config.yaml', configdir / 'beets/config.yaml'],
   ['flexget/config.yml', configdir / 'flexget/config.yml'],
   ['fish/config.fish', configdir / 'fish/config.fish'],
-  ['fish/functions/fisher.fish', configdir / 'fish/functions/fisher.fish'],
   ['gitconfig', '.gitconfig'],
   ['gitignore', '.gitignore'],
   ['profile', '.profile'],
