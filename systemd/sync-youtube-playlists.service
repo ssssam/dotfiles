@@ -4,5 +4,5 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-ExecStart=/home/sam/.local/bin/playlists-export-youtube
+ExecStart=%h/.local/bin/playlists-export-youtube
 Type=oneshot

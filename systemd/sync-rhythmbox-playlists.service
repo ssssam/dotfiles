@@ -2,5 +2,5 @@
 Description="Sync Rhythmbox playlists from local copy"
 
 [Service]
-ExecStart=/home/sam/.local/bin/playlists-export-for-rhythmbox /home/sam/Dropbox/Playlists /home/sam/.local/share/rhythmbox/playlists
+ExecStart=%h/.local/bin/playlists-export-for-rhythmbox %h/Dropbox/Playlists %h/.local/share/rhythmbox/playlists
 Type=oneshot
