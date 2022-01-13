@@ -90,7 +90,7 @@ map     ,a    :GNOMEAlignArguments<CR>
 
 " Standup logs
 function! Standup()
-    execute "0,$s/^.*<\\w\\+> //"
+    execute "0,$s/^.*<.\\+> //"
 endfunction
 
 " Insert line below the cursor.
@@ -123,3 +123,6 @@ vnoremap <c-k> :m '<-2<CR>gv=gv
 " From https://vimtricks.substack.com/p/vimtrick-swap-arguments
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
+
+" CTRL+P configuration
+set wildignore+=*/node_modules/*
