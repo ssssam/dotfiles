@@ -57,6 +57,11 @@ tasks:
   blindboy:
     rss: https://rss.acast.com/blindboy
     template: podcast
+  blindboy-old:
+    rss: https://rss.acast.com/blindboy
+    template: podcast
+    sort_by:
+      reverse: yes
 
   chris-demakes-a-podcast:
     rss: https://feeds.megaphone.fm/JJW5546407535
