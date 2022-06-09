@@ -66,9 +66,12 @@ tasks:
   chris-demakes-a-podcast:
     rss: https://feeds.megaphone.fm/JJW5546407535
     template: podcast
-    limit_new: 2
   chris-demakes-a-podcast-old:
     rss: https://feeds.megaphone.fm/JJW5546407535
     template: podcast
     sort_by:
       reverse: yes
+
+  sound-and-process:
+    rss: http://feeds.feedburner.com/SoundProcess
+    template: podcast
