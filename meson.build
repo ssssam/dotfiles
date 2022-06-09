@@ -5,8 +5,9 @@ message('This is intended to install with --prefix = $HOME')
 configdir = '.config'
 bindir = '.local' / 'bin'
 datadir = '.local' / 'share'
+dropboxdir = 'Dropbox'
 
-symlinks = [
+source_tree_symlinks = [
   ['applications/planalyze.desktop', datadir / 'applications/planalyze.desktop'],
   ['bin/baserock-format-patches', bindir / 'baserock-format-patches'],
   ['bin/fetch-list', bindir / 'fetch-list'],
@@ -32,11 +33,22 @@ symlinks = [
   ['vimrc', '.vimrc'],
 ]
 
-foreach symlink : symlinks
+home_symlinks = [
+  [dropboxdir / 'db-config.sqlite', configdir / 'flexget/db-config.sqlite'],
+]
+
+foreach symlink : source_tree_symlinks
   from = meson.source_root() / symlink[0]
   to = get_option('prefix') / symlink[1]
 
   # Keep an eye on https://github.com/mesonbuild/meson/issues/1602 ...
+  meson.add_install_script('sh', '-c', 'mkdir -p $(dirname "@1@") && ln -sf "@0@" "@1@"'.format(from, to))
+endforeach
+
+foreach symlink : home_symlinks
+  from = get_option('prefix') / symlink[0]
+  to = get_option('prefix') / symlink[1]
+
   meson.add_install_script('sh', '-c', 'mkdir -p $(dirname "@1@") && ln -sf "@0@" "@1@"'.format(from, to))
 endforeach
 
