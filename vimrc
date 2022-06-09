@@ -126,3 +126,4 @@ nnoremap <c-l> :SidewaysRight<cr>
 
 " CTRL+P configuration
 set wildignore+=*/node_modules/*
+set wildignore+=*/target/*
