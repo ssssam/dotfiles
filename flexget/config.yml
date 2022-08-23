@@ -15,14 +15,14 @@ tasks:
   #living-adventurously:
   #  rss: https://feeds.transistor.fm/living-adventurously
   #  template: podcast
-  #
-  no-such-thing-as-a-fish:
-    rss: https://audioboom.com/channels/2399216.rss
-    template: podcast
 
-  adam-buxton:
-    rss: http://rss.acast.com/adambuxton
-    template: podcast
+  #no-such-thing-as-a-fish:
+  #  rss: https://audioboom.com/channels/2399216.rss
+  #  template: podcast
+
+  #adam-buxton:
+  #  rss: http://rss.acast.com/adambuxton
+  #  template: podcast
   adam-buxton-old:
     rss: http://rss.acast.com/adambuxton
     template: podcast
@@ -37,9 +37,9 @@ tasks:
     rss: http://feed.songexploder.net/SongExploder
     template: podcast
 
-  scroobius-pip:
-    rss: http://rss.acast.com/distractionpieces
-    template: podcast
+  #scroobius-pip:
+  #  rss: http://rss.acast.com/distractionpieces
+  #  template: podcast
   scroobius-pip-old:
     rss: http://rss.acast.com/distractionpieces
     template: podcast
@@ -63,9 +63,9 @@ tasks:
     sort_by:
       reverse: yes
 
-  chris-demakes-a-podcast:
-    rss: https://feeds.megaphone.fm/JJW5546407535
-    template: podcast
+  #chris-demakes-a-podcast:
+  #  rss: https://feeds.megaphone.fm/JJW5546407535
+  #    template: podcast
   chris-demakes-a-podcast-old:
     rss: https://feeds.megaphone.fm/JJW5546407535
     template: podcast
