@@ -1,0 +1,15 @@
+# This needs to be installed manually into /etc/systemd/system/
+
+[Unit]
+Description=Quickball media drive
+Requires=network-online.target
+After=network-online.target
+
+[Mount]
+What=//quickball.local/media
+Where=/home/sam/External
+Options=user=pi,password=media,rw
+Type=cifs
+
+[Install]
+WantedBy=multi-user.target
