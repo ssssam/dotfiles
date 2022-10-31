@@ -3,15 +3,6 @@ source $VIMRUNTIME/defaults.vim
 
 filetype plugin indent on
 
-" Python Mode configuration
-let g:pymode_folding = 0
-let g:pymode_lint_on_write = 0
-let g:pymode_trim_whitespaces = 0
-let g:pymode_python = 'python3'
-
-" Workaround for https://github.com/klen/python-mode/issues/405
-let g:pymode_rope = 0
-
 " UltiSnips snippet engine configuration
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -52,6 +43,12 @@ endif
 
 " Editing defaults. Filetype-specific overrides go in
 " .vim/ftplugin/$FILETYPE.vim
+set nobackup
+set nowritebackup
+
+" Aim for faster linter feedback.
+" Suggested from https://github.com/neoclide/coc.nvim
+set updatetime=300
 
 " Visualize tabs by default.
 set list
