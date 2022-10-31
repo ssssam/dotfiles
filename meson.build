@@ -26,6 +26,8 @@ source_tree_symlinks = [
   ['beets/config.yaml', configdir / 'beets/config.yaml'],
   ['flexget/config.yml', configdir / 'flexget/config.yml'],
   ['fish/config.fish', configdir / 'fish/config.fish'],
+  ['nushell/config.nu', configdir / 'nushell/config.nu'],
+  ['nushell/env.nu', configdir / 'nushell/env.nu'],
   ['gitconfig', '.gitconfig'],
   ['gitignore', '.gitignore'],
   ['profile', '.profile'],
