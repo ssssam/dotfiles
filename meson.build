@@ -1,6 +1,8 @@
-project('Sam\'s dotfiles')
+project('Sam\'s dotfiles', meson_version: '>= 0.61')
 
 message('This is intended to install with --prefix = $HOME')
+
+fs = import('fs')
 
 configdir = '.config'
 bindir = '.local' / 'bin'
@@ -40,18 +42,19 @@ home_symlinks = [
 ]
 
 foreach symlink : source_tree_symlinks
-  from = meson.source_root() / symlink[0]
-  to = get_option('prefix') / symlink[1]
-
-  # Keep an eye on https://github.com/mesonbuild/meson/issues/1602 ...
-  meson.add_install_script('sh', '-c', 'mkdir -p $(dirname "@1@") && ln -sf "@0@" "@1@"'.format(from, to))
+  target = meson.global_source_root() / symlink[0]
+  install_dir = get_option('prefix') / fs.parent(symlink[1])
+  link_name = fs.name(symlink[1])
+  install_symlink(link_name, install_dir: install_dir, pointing_to: target)
 endforeach
 
 foreach symlink : home_symlinks
-  from = get_option('prefix') / symlink[0]
-  to = get_option('prefix') / symlink[1]
-
-  meson.add_install_script('sh', '-c', 'mkdir -p $(dirname "@1@") && ln -sf "@0@" "@1@"'.format(from, to))
+  target = get_option('prefix') / symlink[0]
+  if fs.exists(target)
+    install_dir = get_option('prefix') / fs.parent(symlink[1])
+    link_name = fs.name(symlink[1])
+    install_symlink(link_name, install_dir: install_dir, pointing_to: target)
+  endif
 endforeach
 
 subdir('rhythmbox')
