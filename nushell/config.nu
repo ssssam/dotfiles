@@ -1,5 +1,8 @@
 # Nushell Config File
 
+
+alias edit = gvim --remote
+
 alias ga = git add
 alias gb = git branch
 alias gcp = git cherry-pick
