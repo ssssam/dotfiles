@@ -30,6 +30,7 @@ source_tree_symlinks = [
   ['fish/config.fish', configdir / 'fish/config.fish'],
   ['nushell/config.nu', configdir / 'nushell/config.nu'],
   ['nushell/env.nu', configdir / 'nushell/env.nu'],
+  ['speech-dispatcher', configdir / 'speech-dispatcher'],
   ['gitconfig', '.gitconfig'],
   ['gitignore', '.gitignore'],
   ['profile', '.profile'],
