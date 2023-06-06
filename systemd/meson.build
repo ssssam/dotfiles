@@ -1,6 +1,7 @@
 systemd_user_unit_dir = configdir / 'systemd' / 'user'
 
 units = [
+  'media-Quickball.mount',
   'sync-rhythmbox-playlists.path',
   'sync-rhythmbox-playlists.service',
   'sync-spotify-playlists.service',
@@ -15,6 +16,7 @@ foreach unit : units
 endforeach
 
 enable_units = [
+  'media-Quickball.mount',
   'sync-rhythmbox-playlists.path',
   'sync-spotify-playlists.timer',
   'sync-youtube-playlists.timer',
