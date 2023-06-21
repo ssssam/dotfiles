@@ -1,7 +1,6 @@
 # Nushell Config File
 
-
-alias edit = gvim --remote
+alias edit = gvim --remote-tab
 
 alias ga = git add
 alias gb = git branch
