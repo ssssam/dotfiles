@@ -75,7 +75,3 @@ tasks:
   sound-and-process:
     rss: http://feeds.feedburner.com/SoundProcess
     template: podcast
-
-  changelog:
-    rss: https://changelog.com/podcast/feed
-    template: podcast
