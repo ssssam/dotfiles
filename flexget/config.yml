@@ -75,3 +75,7 @@ tasks:
   sound-and-process:
     rss: http://feeds.feedburner.com/SoundProcess
     template: podcast
+
+  ai-theatre:
+    rss: https://feeds.buzzsprout.com/2126417.rss
+    template: podcast
