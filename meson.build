@@ -19,10 +19,8 @@ source_tree_symlinks = [
   ['bin/git-mtime', bindir / 'git-mtime'],
   ['bin/morph-list-branches', bindir / 'morph-list-branches'],
   ['bin/planalyze-wrapper.sh', bindir / 'planalyze-wrapper.sh'],
-  ['bin/playlists-export-for-rhythmbox.py', bindir / 'playlists-export-for-rhythmbox'],
   ['bin/playlists-export-spotify.py', bindir / 'playlists-export-spotify'],
   ['bin/playlists-export-youtube.py', bindir / 'playlists-export-youtube'],
-  ['bin/rhythmbox-load-playlist.sh', bindir / 'rhythmbox-load-playlist'],
   ['bin/update-specfile-from-git.py', bindir / 'update-specfile-from-git'],
   ['bashrc', '.bashrc'],
   ['beets/config.yaml', configdir / 'beets/config.yaml'],
@@ -58,5 +56,4 @@ foreach symlink : home_symlinks
   endif
 endforeach
 
-subdir('rhythmbox')
 subdir('systemd')

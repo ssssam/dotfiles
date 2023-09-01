@@ -4,9 +4,6 @@
 [submodule "vim/bundle/vimproc"]
 	path = vim/pack/vendor/start/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
-[submodule "rhythmbox/random-album-player"]
-	path = rhythmbox/random-album-player
-	url = https://github.com/javonharper/Rhythmbox-Random-Album-Player
 [submodule "vim/bundle/vim-smarttabs"]
 	path = vim/bundle/vim-smarttabs
 	url = https://github.com/dpc/vim-smarttabs
@@ -31,15 +28,6 @@
 [submodule "vim/bundle/vim-fetch"]
 	path = vim/pack/vendor/start/vim-fetch
 	url = https://github.com/wsdjeg/vim-fetch
-[submodule "rhythmbox/lastfm_queue"]
-	path = rhythmbox/lastfm_queue
-	url = https://github.com/asermax/lastfm_queue
-[submodule "rhythmbox/rhythmbox-plugins-open-containing-folder"]
-	path = rhythmbox/rhythmbox-plugins-open-containing-folder
-	url = https://github.com/donaghhorgan/rhythmbox-plugins-open-containing-folder
-[submodule "rhythmbox/rhythmbox-plugin-playlists-import-export"]
-	path = rhythmbox/rhythmbox-plugin-playlists-import-export
-	url = https://github.com/ssssam/rhythmbox-plugin-playlists-import-export
 [submodule "vim/pack/vendor/start/sideways"]
 	path = vim/pack/vendor/start/sideways
 	url = https://github.com/AndrewRadev/sideways.vim
