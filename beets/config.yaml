@@ -1,13 +1,13 @@
 directory: /home/sam/External/Music
-library: /home/sam/.local/share/beets/musiclibrary.db
+library: /home/sam/External/srv/beets/musiclibrary.db
 
 import:
   move: yes
   write: yes
-  log: /home/sam/.local/share/beets/import.log
+  log: /home/sam/External/srv/beets/import.log
   languages: en es
 
-plugins: bandcamp chroma duplicates export fetchart fromfilename fuzzy importadded info missing play random web
+plugins: bandcamp duplicates export fetchart fromfilename fuzzy importadded info missing play random web
 
 paths:
   # For random collections of music received from people that don't have a specific order
