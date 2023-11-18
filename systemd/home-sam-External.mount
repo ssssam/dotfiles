@@ -8,7 +8,7 @@ After=network-online.target
 [Mount]
 What=//quickball.local/media
 Where=/home/sam/External
-Options=user=media,password=media,rw,noperm
+Options=user=media,password=media,rw,noperm,uid=1000,gid=1000
 Type=cifs
 
 [Install]
