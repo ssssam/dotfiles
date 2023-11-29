@@ -16,6 +16,7 @@ source_tree_symlinks = [
   ['bin/git-active-days', bindir / 'git-active-days'],
   ['bin/git-backport-merge', bindir / 'git-backport-merge'],
   ['bin/git-conflicts', bindir / 'git-conflicts'],
+  ['bin/git-gone', bindir / 'git-gone'],
   ['bin/git-mtime', bindir / 'git-mtime'],
   ['bin/morph-list-branches', bindir / 'morph-list-branches'],
   ['bin/planalyze-wrapper.sh', bindir / 'planalyze-wrapper.sh'],
