@@ -50,9 +50,9 @@ tasks:
     rss: https://www.lostmap.com/podcast?format=rss
     template: podcast
 
-  rob-auton-podcast:
-    rss: https://rss.acast.com/robautonpodcast
-    template: podcast
+      #rob-auton-podcast:
+      #rss: https://rss.acast.com/robautonpodcast
+      #template: podcast
 
   blindboy:
     rss: https://rss.acast.com/blindboy
@@ -78,4 +78,8 @@ tasks:
 
   ai-theatre:
     rss: https://feeds.buzzsprout.com/2126417.rss
+    template: podcast
+
+  the-manchester-mill:
+    rss: https://feeds.acast.com/public/shows/the-manchester-weekly-from-the-mill
     template: podcast
