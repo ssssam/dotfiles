@@ -1,6 +1,0 @@
-[Unit]
-Description="Sync Rhythmbox playlists from local copy"
-
-[Service]
-ExecStart=%h/.local/bin/playlists-export-for-rhythmbox %h/Dropbox/Playlists %h/.local/share/rhythmbox/playlists
-Type=oneshot

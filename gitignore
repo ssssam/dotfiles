@@ -1,4 +1,0 @@
-# Sam's global gitignore file
-*.pyc
-.*.sw?
-.coverage
